@@ -12,11 +12,12 @@ import MessageUI
 
 class ViewController: UIViewController {
     
+    // MARK: - IBOtlets
+    
     @IBOutlet var stack: UIStackView!
     @IBOutlet var image: UIImageView!
     
-    
-    
+    // MARK: - Lifecycle
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
         }
         else { stack.axis = .vertical}
     }
+    
+    // MARK: - IBActions
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
         guard let image = image.image else {return}
@@ -55,7 +58,6 @@ class ViewController: UIViewController {
                 self.present(imagePicker, animated: true)
             }
             alert.addAction(camera)
-            
         }
         
         
@@ -66,12 +68,7 @@ class ViewController: UIViewController {
             }
             alert.addAction(photoLibrary)
         }
-        
-        
-        
         present(alert, animated: true)
-        
-        
     }
     
     @IBAction func emailButtonPressed(_ sender: UIButton) {
@@ -103,10 +100,6 @@ class ViewController: UIViewController {
             present(mailComposer, animated: true)
         }
         
-
-        
-        
-        
     }
     
     @IBAction func smsButtonPressed(_ sender: UIButton) {
@@ -118,7 +111,7 @@ class ViewController: UIViewController {
         let messageComposeViewController = MFMessageComposeViewController()
         messageComposeViewController.messageComposeDelegate = self
         messageComposeViewController.body = "Отправка сообщения"
-       // present(messageComposeViewController, animated: true, completion: nil)
+        // present(messageComposeViewController, animated: true, completion: nil)
         guard let filePath = Bundle.main.path(forResource: "Image", ofType: "jpg") else {
             print("нет файла")
             return
@@ -136,39 +129,55 @@ class ViewController: UIViewController {
             present(messageComposeViewController, animated: true)
         }
         
-
     }
-    
     
 }
 
+// MARK: - Extension
+
 extension ViewController: UIImagePickerControllerDelegate {
+    
+    // MARK: - Public methods
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         guard let selectedImage = info[.originalImage] as? UIImage else { return  }
         
         image.image = selectedImage
-        dismiss(animated: true)    }
+        dismiss(animated: true)
+    }
     
 }
+
+// MARK: - Extension
 
 extension ViewController: UINavigationControllerDelegate{
     
 }
 
-extension ViewController: MFMailComposeViewControllerDelegate{
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+// MARK: - Extension
 
+extension ViewController: MFMailComposeViewControllerDelegate{
+    
+    // MARK: - Public methods
+    
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        
         dismiss(animated: true)
     }
     
-    
 }
 
+// MARK: - Extension
+
 extension ViewController: MFMessageComposeViewControllerDelegate{
+    
+    // MARK: - Public methods
+    
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         dismiss(animated: true, completion: nil)
     }
+    
 }
 
 

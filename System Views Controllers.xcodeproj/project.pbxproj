@@ -23,7 +23,7 @@
 		6CEB51ED2308424D003D4444 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CEB51F02308424D003D4444 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CEB51F22308424D003D4444 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6CEB51FE23099C37003D4444 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = Image.jpg; path = "System Views Controllers/Resources/Assets.xcassets/Image.jpg"; sourceTree = "<group>"; };
+		6CEB51FE23099C37003D4444 /* Image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Image.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +40,6 @@
 		6CEB51DA2308424B003D4444 = {
 			isa = PBXGroup;
 			children = (
-				6CEB51FE23099C37003D4444 /* Image.jpg */,
 				6CEB51E52308424B003D4444 /* System Views Controllers */,
 				6CEB51E42308424B003D4444 /* Products */,
 			);
@@ -68,6 +67,7 @@
 		6CEB51F823084258003D4444 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6CEB51FE23099C37003D4444 /* Image.jpg */,
 				6CEB51ED2308424D003D4444 /* Assets.xcassets */,
 			);
 			path = Resources;
